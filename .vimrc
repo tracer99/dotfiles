@@ -50,15 +50,32 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" tab width of 4 and indent of 4
+" tab width of 2 and indent of 2
 " " indent levels end up going in as literal tabs in the file
-:set shiftwidth=2
-:set tabstop=2
-:set noexpandtab
-:set softtabstop=0
+set shiftwidth=2		"Indent by 2 spaces when using >>, <<, == etc. - abbr sw
+set tabstop=2				"Indent by 2 spaces when pressing <TAB> - abbr ts
+set noexpandtab			"use actual tabs
+set softtabstop=0
+set smartindent     "Automatically inserts indentation in some cases
 
-:set wildmenu
-:set wildmode=full
+
+set wildmenu
+set wildmode=full
+
+
+
+" unix style line endings
+set ff=unix
+
+" Height of the command bar
+set cmdheight=2
+
+" Makes search act like search in modern browsers
+set incsearch
+set hlsearch
+
+" Don't redraw while executing macros (good performance config)
+set lazyredraw
 
 " colour scheme settings
 syntax on
@@ -66,6 +83,17 @@ set background=dark
 set t_Co=256
 colorscheme hybrid
 
+" misc UI options
+set cursorline						"highlight current line
+set number								"line numbers
+
+" netrw options
+let g:netrw_liststyles=3	"tree
+let g:netrw_banner=0			"no banner
+
 " set stach as mustache
 au BufRead,BufNewFile *.stache setfiletype mustache
 au BufRead,BufNewFile *.component setfiletype html
+
+" turn off swap files
+set noswapfile
