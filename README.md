@@ -29,7 +29,7 @@ git remote add -t \* -f origin git@github.com:tracer99/dotfiles.git
 git checkout master
 ```
 
-OMF needs a much newer version of GIT that comes with Debian
+OMF needs a much newer version of GIT that comes with Ubuntu
 
 ```
 sudo add-apt-repository ppa:git-core/ppa
