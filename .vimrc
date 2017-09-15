@@ -31,6 +31,15 @@ Plugin 'alvan/vim-closetag'
 " TT2 and Perl 
 Plugin 'vim-perl/vim-perl'
 
+" File Explorer
+Plugin 'scrooloose/nerdtree'
+
+" better JS support
+Plugin 'pangloss/vim-javascript'
+
+" searching 
+Plugin 'kien/ctrlp.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -97,3 +106,6 @@ au BufRead,BufNewFile *.component setfiletype html
 
 " turn off swap files
 set noswapfile
+
+" open NerdTree by default
+autocmd vimenter * NERDTree
