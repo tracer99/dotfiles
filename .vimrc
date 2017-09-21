@@ -108,4 +108,4 @@ au BufRead,BufNewFile *.component setfiletype html
 set noswapfile
 
 " open NerdTree by default
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
