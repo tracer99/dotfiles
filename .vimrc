@@ -64,7 +64,7 @@ filetype plugin indent on    " required
 set shiftwidth=2		"Indent by 2 spaces when using >>, <<, == etc. - abbr sw
 set tabstop=2				"Indent by 2 spaces when pressing <TAB> - abbr ts
 set noexpandtab			"use actual tabs
-set softtabstop=0
+set softtabstop=2
 set smartindent     "Automatically inserts indentation in some cases
 
 

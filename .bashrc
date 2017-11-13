@@ -102,6 +102,7 @@ export STOREFRONT_VAR="$HOME/var.storefront"
 export STOREFRONT_USER="$USER"
 
 export PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin
+export LAUNCHPAD_CHROME='/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe'
 
 
 #export DISPLAY=localhost:0.0
