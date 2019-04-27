@@ -12,9 +12,6 @@ Plugin 'VundleVim/Vundle.vim'
 "
 " original repos on github
 
-" syntax compleation
-Plugin 'Valloric/YouCompleteMe'
-
 " dark themes
 Plugin 'scwood/vim-hybrid'
 Plugin 'nanotech/jellybeans.vim'
