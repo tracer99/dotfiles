@@ -1,6 +1,8 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+set encoding=UTF-8
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -36,6 +38,10 @@ Plugin 'pangloss/vim-javascript'
 
 " searching 
 Plugin 'kien/ctrlp.vim'
+
+" DevIcons
+" Fonts are here https://github.com/ryanoasis/nerd-fonts#patched-fonts
+Plugin 'ryanoasis/vim-devicons'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -106,3 +112,7 @@ set noswapfile
 
 " open NerdTree by default
 " autocmd vimenter * NERDTree
+"
+" undo
+set undodir=~/.vim/undo
+set undofile
