@@ -102,6 +102,10 @@ export STOREFRONT_VAR="$HOME/var.storefront"
 export STOREFRONT_USER="$USER"
 
 export PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin
+export LAUNCHPAD_CHROME='/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe'
+
+##
+export USER=pault #user isn't set in windows, and I need this to match all my other user env code
 
 
 #export DISPLAY=localhost:0.0

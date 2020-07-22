@@ -1,6 +1,8 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+set encoding=UTF-8
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -11,9 +13,6 @@ Plugin 'VundleVim/Vundle.vim'
 " My Bundles:
 "
 " original repos on github
-
-" syntax compleation
-Plugin 'Valloric/YouCompleteMe'
 
 " dark themes
 Plugin 'scwood/vim-hybrid'
@@ -30,6 +29,19 @@ Plugin 'alvan/vim-closetag'
 
 " TT2 and Perl 
 Plugin 'vim-perl/vim-perl'
+
+" File Explorer
+Plugin 'scrooloose/nerdtree'
+
+" better JS support
+Plugin 'pangloss/vim-javascript'
+
+" searching 
+Plugin 'kien/ctrlp.vim'
+
+" DevIcons
+" Fonts are here https://github.com/ryanoasis/nerd-fonts#patched-fonts
+Plugin 'ryanoasis/vim-devicons'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -55,7 +67,7 @@ filetype plugin indent on    " required
 set shiftwidth=2		"Indent by 2 spaces when using >>, <<, == etc. - abbr sw
 set tabstop=2				"Indent by 2 spaces when pressing <TAB> - abbr ts
 set noexpandtab			"use actual tabs
-set softtabstop=0
+set softtabstop=2
 set smartindent     "Automatically inserts indentation in some cases
 
 
@@ -97,3 +109,10 @@ au BufRead,BufNewFile *.component setfiletype html
 
 " turn off swap files
 set noswapfile
+
+" open NerdTree by default
+" autocmd vimenter * NERDTree
+"
+" undo
+set undodir=~/.vim/undo
+set undofile

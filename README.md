@@ -1,20 +1,6 @@
 # dotfiles
 These are my configs.
 
-I use fish as my main terminal.
-
-```
-sudo apt-add-repository ppa:fish-shell/release-2
-sudo apt-get update
-sudo apt-get install fish
-```
-
-I use Oh My Fish to make it pretty.
-
-```
-curl -L https://get.oh-my.fish | fish
-```
-
 I use VIM and therefore Vundle
 
 ```
@@ -28,3 +14,9 @@ git init .
 git remote add -t \* -f origin git@github.com:tracer99/dotfiles.git
 git checkout master
 ```
+
+My shell prompt is Fish with Starship
+
+Choose and install a [NerdFont](https://www.nerdfonts.com/font-downloads)
+
+Follow the [fish installation documentation for your OS](https://fishshell.com/) and then install [StarShip](https://starship.rs/)
