@@ -1,7 +1,7 @@
 # dotfiles
 These are my configs.
 
-I use VIM and therefore Vundle
+I use [NEOVIM](https://github.com/neovim/neovim/wiki/Installing-Neovim) and therefore Vundle
 
 ```
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
