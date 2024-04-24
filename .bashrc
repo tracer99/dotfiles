@@ -87,22 +87,8 @@ export EDITOR=vim
 export SVN_EDITOR=$EDITOR
 
 ##
-export CONTROL_PANEL_HOME=/home/pault/control_panel
-export DOMAIN_ADMIN_HOME=/home/pault/domain_admin
-export CONTROL_PANEL_VAR=/home/pault/var.control_panel
-export DOMAIN_ADMIN_VAR=/home/pault/var.domain_admin
-export TING_WEB_HOME=/home/pault/ting-web
-export TING_WEB_VAR=/home/pault/var.ting_web
-export CATALYST_CONFIG_LOCAL_SUFFIX=pault
-export CVSROOT=:ext:$USER@dev1.opensrs.net:/usr/home/cvsroot
-export RESELLER_SIGNUP_HOME=/home/pault/reseller_signup
-export RESELLER_SIGNUP_VAR=/home/pault/var.reseller_signup
-export STOREFRONT_HOME="$HOME/storefront"
-export STOREFRONT_VAR="$HOME/var.storefront"
-export STOREFRONT_USER="$USER"
 
 export PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin
-export LAUNCHPAD_CHROME='/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe'
 
 ##
 export USER=pault #user isn't set in windows, and I need this to match all my other user env code
