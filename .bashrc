@@ -21,17 +21,17 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-xterm-color)
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    ;;
-*)
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-    ;;
-esac
+#case "$TERM" in
+#xterm-color)
+#    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+#    ;;
+#*)
+#    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+#    ;;
+#esac
 
 # Comment in the above and uncomment this below for a color prompt
-#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -56,23 +56,11 @@ fi
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-#if [ -f ~/.bash_aliases ]; then
-#    . ~/.bash_aliases
-#fi
-
-# enable color support of ls and also add handy aliases
-if [ "$TERM" != "dumb" ]; then
-    eval "`dircolors -b`"
-    alias ls='ls --color=auto'
-    #alias dir='ls --color=auto --format=vertical'
-    #alias vdir='ls --color=auto --format=long'
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
 fi
 
-# some more ls aliases
-#alias ll='ls -l'
-#alias la='ls -A'
-alias l='ls -al'
-
+# enable color support of ls and also add handy aliases
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -86,33 +74,20 @@ export PASSIVE_FTP=1
 export EDITOR=vim
 export SVN_EDITOR=$EDITOR
 
-##
-export CONTROL_PANEL_HOME=/home/pault/control_panel
-export DOMAIN_ADMIN_HOME=/home/pault/domain_admin
-export CONTROL_PANEL_VAR=/home/pault/var.control_panel
-export DOMAIN_ADMIN_VAR=/home/pault/var.domain_admin
-export TING_WEB_HOME=/home/pault/ting-web
-export TING_WEB_VAR=/home/pault/var.ting_web
-export CATALYST_CONFIG_LOCAL_SUFFIX=pault
-export CVSROOT=:ext:$USER@dev1.opensrs.net:/usr/home/cvsroot
-export RESELLER_SIGNUP_HOME=/home/pault/reseller_signup
-export RESELLER_SIGNUP_VAR=/home/pault/var.reseller_signup
-export STOREFRONT_HOME="$HOME/storefront"
-export STOREFRONT_VAR="$HOME/var.storefront"
-export STOREFRONT_USER="$USER"
-
 export PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin
-export LAUNCHPAD_CHROME='/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe'
-export LAUNCHPAD_FIREFOX='/mnt/c/Program Files/Mozilla Firefox/firefox.exe'
 
-##
-export USER=pault #user isn't set in windows, and I need this to match all my other user env code
+#WSL specific stuff
+if [ -f "/etc/wsl.conf" ]; then
+	#launchpad needs chrome, in WSL this isn't going to be local
+	export LAUNCHPAD_CHROME='/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe'
+	export LAUNCHPAD_FIREFOX='/mnt/c/Program Files/Mozilla Firefox/firefox.exe'
+	export USER=pault #user isn't set in windows, and I need this to match all my other user env code
+fi
 
 
 #export DISPLAY=localhost:0.0
 
-## 
-
+## Node Version Manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
