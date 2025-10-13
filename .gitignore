@@ -3,3 +3,16 @@
 .vim/bundle/*
 .ssh
 .npm
+.bash_history
+.bash_logout
+.cache/
+.config/configstore/
+.config/fish/fish_variables
+.config/fish/fishfile
+.config/fish/functions/__bass.py
+.config/fish/functions/bass.fish
+.config/fish/functions/fisher.fish
+.local/
+.nvm/
+.profile
+.viminfo
