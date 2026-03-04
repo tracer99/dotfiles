@@ -20,18 +20,51 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
+# Git branch/repo helper for prompt (supports GitButler virtual branches)
+__git_prompt() {
+    local gitdir
+    gitdir=$(git rev-parse --git-dir 2>/dev/null) || return
+
+    local repo
+    repo=$(basename "$(git rev-parse --show-toplevel 2>/dev/null)" 2>/dev/null)
+
+    local vb_toml="${gitdir}/gitbutler/virtual_branches.toml"
+    if [ -f "$vb_toml" ]; then
+        # GitButler repo: show active virtual branches
+        local branches
+        branches=$(awk '
+            /^.branches\./ && !/\.heads/ { in_ws=0 }
+            /in_workspace = true/        { in_ws=1 }
+            in_ws && /^..branches\./ && /\.heads../ { want_name=1; next }
+            want_name && /^name = / {
+                sub(/^name = "/, ""); sub(/"$/, ""); print; want_name=0
+            }
+        ' "$vb_toml")
+        if [ -n "$branches" ]; then
+            local joined
+            joined=$(echo "$branches" | paste -sd ',' -)
+            echo " ${repo}[gb: ${joined}]"
+            return
+        fi
+    fi
+
+    # Standard git: show current branch or detached HEAD
+    local branch
+    branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
+    if [ -n "$branch" ]; then
+        echo " ${repo}(${branch})"
+    fi
+}
+
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-xterm-color)
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+xterm-color|xterm-256color)
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00;33m\]$(__git_prompt)\[\033[00m\]\n\$ '
     ;;
 *)
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(__git_prompt)\n\$ '
     ;;
 esac
-
-# Comment in the above and uncomment this below for a color prompt
-#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -42,12 +75,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-if [ "`echo $0 | grep bash`" != "" ] ; then
-        if [ -f /etc/bash_completion ] ; then
-                . /etc/bash_completion
-                export PS1='${IP} ${debian_chroot:+($debian_chroot)}\u@\h:$(__git_ps1) \w\$ '
-        fi
-fi
 
 
 
