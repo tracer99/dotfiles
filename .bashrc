@@ -29,8 +29,10 @@ __git_prompt() {
     repo=$(basename "$(git rev-parse --show-toplevel 2>/dev/null)" 2>/dev/null)
 
     local vb_toml="${gitdir}/gitbutler/virtual_branches.toml"
-    if [ -f "$vb_toml" ]; then
-        # GitButler repo: show active virtual branches
+    if [ -f "$vb_toml" ] \
+        && git rev-parse --verify refs/heads/gitbutler/workspace &>/dev/null \
+        && grep -q 'in_workspace = true' "$vb_toml"; then
+        # GitButler actively managing: show virtual branches in workspace
         local branches
         branches=$(awk '
             /^.branches\./ && !/\.heads/ { in_ws=0 }
