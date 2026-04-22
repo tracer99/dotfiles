@@ -1,3 +1,4 @@
+set shell=/bin/bash
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -117,5 +118,5 @@ set noswapfile
 set undodir=~/.vim/undo
 set undofile
 
-" mouse no
+" turn off mouse
 set mouse=
