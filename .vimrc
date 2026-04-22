@@ -116,3 +116,6 @@ set noswapfile
 " undo
 set undodir=~/.vim/undo
 set undofile
+
+" mouse no
+set mouse=
