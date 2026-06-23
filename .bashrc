@@ -1,4 +1,3 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
@@ -45,6 +44,10 @@ fi
 #alias ll='ls -l'
 #alias la='ls -A'
 alias l='ls -al'
+
+# 1password SSH aliases for WSL2
+alias ssh='ssh.exe'
+alias ssh-add='ssh-add.exe'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
