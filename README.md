@@ -15,10 +15,8 @@ git remote add -t \* -f origin git@github.com:tracer99/dotfiles.git
 git checkout master
 ```
 
-I use [StarShip](https://starship.rs/) which needs a [Nerd Font](https://www.nerdfonts.com/font-downloads) and then you need to install it:
+I use [StarShip](https://starship.rs/) which needs a [Nerd Font](https://www.nerdfonts.com/font-downloads) and then you need to install it and then set it for your termainl (if applicable):
 
 ```
 curl -sS https://starship.rs/install.sh | sh
 ```
-
-Since I do a lot of JavaScript/NodeJS development, I use, and [this requires special configuration](https://eshlox.net/2019/01/27/how-to-use-nvm-with-fish-shell). 
