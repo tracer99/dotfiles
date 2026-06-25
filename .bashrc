@@ -147,3 +147,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# secrets
+[ -f ~/.secrets ] && . ~/.secrets
