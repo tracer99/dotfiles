@@ -1,3 +1,4 @@
+set shell=/bin/bash
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -37,7 +38,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'pangloss/vim-javascript'
 
 " searching 
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " DevIcons
 " Fonts are here https://github.com/ryanoasis/nerd-fonts#patched-fonts
@@ -116,3 +117,6 @@ set noswapfile
 " undo
 set undodir=~/.vim/undo
 set undofile
+
+" turn off mouse
+set mouse=
